@@ -1,23 +1,18 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-
+const INITIAL_STATE = {
+    name: 'pepe',
+    email: '',
+    password: ''
+}
 const UserForm = () => {
-    const INITIAL_STATE={
-        name:'pepe',
-        email:'',
-        password:''
-    }
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-
-    const [user, setUser] = useState({INITIAL_STATE})
+    const [user, setUser] = useState(INITIAL_STATE)
 
     const navigate = useNavigate();
     const [error, setError] = useState(null)
 
     function handleChange(e){
-        setUser({...user, [e.target.name]:e.target.value})
+        setUser({...user, [e.target.name]: e.target.value})
     }
 
     async function handleSubmit(e){
@@ -39,22 +34,20 @@ const UserForm = () => {
         }
 
     }
-    //validacion del formulario (soo del nombre)
-    useEffect( ()=> {
-        //TODO no mostrar el nombre la primera vez o actualices la página
-        if(!name){
-        setError('El nombre no puede estar vacío')
-        return
+
+    useEffect( () => {
+        //TODO no mostrar el error la primera vez
+        if(!user.name) {
+            setError('El nombre no puede estar vacio')
+            return
         }
-        if(name.length < 3){
-        setError('La longitus del nombre tiene que ser mayor que 2')
-        return
+        if(user.name.length < 3){
+            setError('La logitud del nombre tiene que ser mayor de 2')
+            return
         }
         setError(null)
+    }, [user.name])
 
-    }, [name] )
-
-    //formulario
     return <>
         <h1>Formulario registro</h1>
         <form onSubmit={handleSubmit} className="flex flex-col">
@@ -72,8 +65,7 @@ const UserForm = () => {
 
             <button type="submit">Registro</button>
         </form>
-        
-        {error && <p style={{color:'red'}}>{error}</p>}
+        { error && <p style={{color: 'red'}}>{error}</p>}
     </>
 }
 
