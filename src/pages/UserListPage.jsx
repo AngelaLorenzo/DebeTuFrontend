@@ -5,7 +5,7 @@ const UserList = () => {
  
     if(error) return <div>Error {error}</div>
 
-    useEffect(()=>{
+   /* useEffect(()=>{
         async function callApi(){
             setLoading(true)
             console.log('llamando')
@@ -16,7 +16,7 @@ const UserList = () => {
             setLoading(false)
         }
         callApi()
-    },[])
+    },[])*/
 
     if(loading) return <div>Loading...</div>
     if(!users.length) return <div>'No hay usuarios'</div>

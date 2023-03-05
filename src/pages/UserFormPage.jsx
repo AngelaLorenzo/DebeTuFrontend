@@ -24,7 +24,7 @@ const UserForm = () => {
             'Content-Type':'application/json',
             // 'Authorization': 'bearer xxxxxxx'
           },
-          body: JSON.stringify( { name, email,  password } )  
+          body: JSON.stringify( user )
         })
         if(!response.ok){
             console.log('error en la peticion:')
