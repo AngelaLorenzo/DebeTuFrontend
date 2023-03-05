@@ -3,8 +3,8 @@ import Messages from './pages/MessagesPage'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import Saludo from './pages/SaludoPage'
 import Navbar from './components/Navbar'
-import UserList from './pages/UserListPage'
-import UserForm from './pages/UserFormPage'
+import UserListOld from './pages/UserListPageOld'
+import UserFormPageOld from './pages/UserFormPageOld'
 import Login from './pages/LoginPage'
 import Me from './pages/MePage'
 import MyDebtors from './pages/MyDebtorsPage'
@@ -18,8 +18,8 @@ function App() {
        <Routes>
         <Route path="/" element={<Saludo/>}></Route>
         <Route path="/chat" element={<Messages/>}></Route>
-        <Route path="/userList" element={<UserList/>}></Route>
-        <Route path="/register" element={<UserForm/>}></Route>
+        <Route path="/userList" element={<UserListOld/>}></Route>
+        <Route path="/register" element={<UserFormPageOld/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/me" element={<Me/>}></Route>
         <Route path="/myDebtors" element={<MyDebtors/>}></Route>

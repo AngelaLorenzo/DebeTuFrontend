@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 
-const UserListPageOld = () => {
+const UserListOld = () => {
     const [users, setUsers] = useState([])
     const [loading ,setLoading] = useState(false)
 
