@@ -47,4 +47,4 @@ const UserFormPageOld = () => {
     </>
 }
 
-export default UserFormOld
+export default UserFormPageOld
