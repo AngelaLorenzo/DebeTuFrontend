@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 
-const UserListOld = () => {
+const UserList = () => {
     const [users, setUsers] = useState([])
     const [loading ,setLoading] = useState(false)
 
@@ -27,4 +27,4 @@ const UserListOld = () => {
     </>
 }
 
-export default UserListOld
+export default UserList
