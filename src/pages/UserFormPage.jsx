@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 const INITIAL_STATE = {
     name: 'pepe',
     email: '',
-    password: ''
+    password: '',
+    rol: ''
 }
 const UserForm = () => {
     const [user, setUser] = useState(INITIAL_STATE)
@@ -62,6 +63,13 @@ const UserForm = () => {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" name="password" value={user.password} 
                 onChange={handleChange}/>
+            
+            <label htmlFor="rol">Rol</label>
+            <select>
+                <option value="invitado">Invitado</option>
+                <option value="usuario">Usuario</option>
+                <option selected value="admin">Admin</option>
+            </select>
 
             <button type="submit">Registro</button>
         </form>
