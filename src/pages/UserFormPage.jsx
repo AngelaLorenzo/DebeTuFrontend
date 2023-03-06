@@ -4,11 +4,11 @@ const INITIAL_STATE = {
     name: 'pepe',
     email: '',
     password: '',
-    rol: ''
+    role: "invitado"
 }
 const UserForm = () => {
     const [user, setUser] = useState(INITIAL_STATE)
-
+    
     const navigate = useNavigate();
     const [error, setError] = useState(null)
 
@@ -35,6 +35,10 @@ const UserForm = () => {
         }
 
     }
+    const handleRoleChange = (event) => {
+        setSelectedRole(event.target.value);
+        handleChange(event);
+      };
 
     useEffect( () => {
         //TODO no mostrar el error la primera vez
@@ -65,11 +69,11 @@ const UserForm = () => {
                 onChange={handleChange}/>
             
             <label htmlFor="rol">Rol</label>
-            <select>
-                <option value="invitado">Invitado</option>
-                <option value="usuario">Usuario</option>
-                <option selected value="admin">Admin</option>
-            </select>
+<select id="rol" name="role" value={selectedRole} onChange={handleRoleChange}>
+  <option value="invitado">Invitado</option>
+  <option value="usuario">Usuario</option>
+  <option value="admin">Admin</option>
+</select>
 
             <button type="submit">Registro</button>
         </form>
@@ -78,3 +82,12 @@ const UserForm = () => {
 }
 
 export default UserForm
+
+
+
+
+
+//body: JSON.stringify({ user: { ...user, role: user.role } }),
+
+//const [selectedRole, setSelectedRole] = useState(INITIAL_STATE.role);
+
